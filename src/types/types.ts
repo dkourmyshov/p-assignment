@@ -58,6 +58,7 @@ export interface Trade {
 export interface TradesState {
   trades: Trade[];
   selected: number | null;
+  selectedCandidate: number | null;
   isSeller: boolean;
   tradingInfo: TradingInfo;
 }

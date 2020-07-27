@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { makeStyles, Paper } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
+import Typography from "@material-ui/core/Typography";
 
 import { TradeCard } from "./TradeCard";
 import { allTrades, selectedTrade } from "../../redux/selectors/selectors";
@@ -20,6 +21,9 @@ const useStyles = makeStyles((theme) => ({
       minHeight: "100%",
     },
   },
+  empty: {
+    padding: 20
+  }
 }));
 
 export const Trade: React.FC = () => {
@@ -34,9 +38,12 @@ export const Trade: React.FC = () => {
 
   return (
     <Paper className={classes.root}>
-      {trades.map((trade) => (
-        <TradeCard key={trade.id} selected={currentTradeId} tradeInfo={trade} />
-      ))}
+      {trades.length > 0
+        ? trades.map(trade => (
+          <TradeCard key={trade.id} selected={currentTradeId} tradeInfo={trade} />
+        ))
+        : (<div className={classes.empty}><Typography>No trades found</Typography></div>)
+      }
     </Paper>
   );
 };

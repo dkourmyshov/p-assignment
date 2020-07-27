@@ -33,10 +33,19 @@ const useStyles = makeStyles(({ spacing, palette, breakpoints }) => ({
     },
     [breakpoints.down("sm")]: {
       paddingTop: 40,
+      width: "100%",
+      top: "160px",
+      bottom: "55px",
+      position: "fixed",
+      minHeight: "auto",
+      overflowX: "scroll"
     },
   },
   heading: {
     textAlign: "center",
+    [breakpoints.down('xs')]: {
+      textAlign: "left",
+    },
   },
   circleIcon: {
     color: "#ffffff",
@@ -44,6 +53,9 @@ const useStyles = makeStyles(({ spacing, palette, breakpoints }) => ({
     float: "left",
     marginLeft: 20,
     cursor: "pointer",
+    [breakpoints.down('xs')]: {
+      marginLeft: 10,
+    },
   },
   success: {
     color: palette.success.main,
@@ -71,7 +83,30 @@ const useStyles = makeStyles(({ spacing, palette, breakpoints }) => ({
     display: "flex",
     alignItems: "center",
     width: "95%",
+    [breakpoints.down('sm')]: {
+      position: "fixed",
+      bottom: "0",
+      width: "auto",
+      left: "4px",
+      right: "4px"
+    }
   },
+  paymentMethod: {
+    [breakpoints.down('sm')]: {
+      fontSize: 28
+    },
+    [breakpoints.down('xs')]: {
+      fontSize: 24
+    }
+  },
+  buyerInformation: {
+    [breakpoints.down('sm')]: {
+      fontSize: 24
+    },
+    [breakpoints.down('xs')]: {
+      fontSize: 20
+    }
+  }
 }));
 
 export const Chat = () => {
@@ -133,8 +168,8 @@ export const Chat = () => {
               </IconButton>
             </div>
             <div>
-              <Typography variant="h4">{currentTrade.paymentMethod}</Typography>
-              <Typography color="textSecondary" variant="h5" gutterBottom>
+              <Typography variant="h4" className={classes.paymentMethod}>{currentTrade.paymentMethod}</Typography>
+              <Typography color="textSecondary" variant="h5" gutterBottom className={classes.buyerInformation}>
                 {currentTrade.buyerName}
                 <span className={classes.success}> +37 </span>/
                 <span className={classes.error}> -1 </span>

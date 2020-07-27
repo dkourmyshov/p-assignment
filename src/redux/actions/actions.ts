@@ -11,7 +11,8 @@ import {
   MARK_AS_READ,
   GET_TRADING_INFO,
   GET_TRADING_INFO_SUCCESS,
-  GET_TRADING_INFO_FAILURE
+  GET_TRADING_INFO_FAILURE,
+  PAY
 } from "./actionTypes";
 
 type TradeId = number
@@ -30,3 +31,5 @@ export const markAsRead = createAction(MARK_AS_READ) <TradeId> ();
 
 export const {request: getTradingInfo, success: getTradingInfoSuccess, failure: getTradingInfoFailure} = //TODO: handle failure
   createAsyncAction(GET_TRADING_INFO, GET_TRADING_INFO_SUCCESS, GET_TRADING_INFO_FAILURE) <void, BPI, Error> ();
+
+export const pay = createAction(PAY) <void> ();

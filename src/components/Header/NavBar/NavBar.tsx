@@ -13,6 +13,10 @@ import { CollapsedNavbar } from "./CollapsedNavbar";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    [theme.breakpoints.down('sm')]: {
+      position: "fixed",
+      width: "100vw"
+    }
   },
   title: {
     flexGrow: 1,
@@ -30,6 +34,9 @@ const useStyles = makeStyles((theme) => ({
   buttonBar: {
     [theme.breakpoints.down("xs")]: {
       display: "none",
+    },
+    [theme.breakpoints.down('sm')]: {
+      position: "fixed",
     },
     margin: "10px",
     paddingLeft: "16px",

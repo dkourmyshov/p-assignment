@@ -21,20 +21,20 @@ const useStyles = makeStyles((theme) => ({
     display: "inline-block",
     margin: "2px 10px 2px 2px",
     transform: "scale(3)",
-    color: "green",
+    color: "limegreen",
   },
   bullet: {
     display: "inline-block",
     margin: "2px 10px 2px 2px",
     transform: "scale(3)",
-    color: "gray",
+    color: "#bdbdbd",
   },
   text: {
     textAlign: "center",
   },
   succesText: {
     textAlign: "center",
-    color: "green",
+    color: "limegreen",
   },
   info: {
     [theme.breakpoints.down("sm")]: {

@@ -1,5 +1,7 @@
 import React from "react";
 import { Grid, Typography, Button, makeStyles } from "@material-ui/core";
+import { useDispatch } from "react-redux";
+import { pay } from "../../redux/actions/actions";
 
 const useStyles = makeStyles({
   info: {
@@ -8,13 +10,18 @@ const useStyles = makeStyles({
   button: {
     margin: "20px",
   },
+  main: {
+    padding: "10px"
+  }
 });
 
 export const Header = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
 
   return (
-    <div>
+    <div className={classes.main}>
+
       <Grid
         className={classes.info}
         container
@@ -35,6 +42,7 @@ export const Header = () => {
             className={classes.button}
             variant="contained"
             color="secondary"
+            onClick={() => dispatch(pay())}
           >
             Release bitcoins
           </Button>

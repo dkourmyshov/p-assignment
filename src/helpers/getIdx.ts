@@ -1,11 +1,8 @@
-export const getIdx = (
+export const getIdx = <T extends {[key: string]: unknown}>( //FIXME: hacky type
   key: string,
-  value: number | null,
-  array: Array<any>
+  value: unknown,
+  array: T[]
 ): number | undefined => {
-  for (let i = 0; i < array.length; i++) {
-    if (array[i][key] === value) {
-      return i;
-    }
-  }
+  const index = array.findIndex(item => item[key] === value);
+  return index === -1 ? undefined : index
 };

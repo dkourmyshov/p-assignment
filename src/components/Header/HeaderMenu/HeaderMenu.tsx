@@ -5,12 +5,17 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import { Link } from "react-router-dom";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
     justifyContent: "center",
+    [theme.breakpoints.down('sm')]: {
+      position: "fixed",
+      width: "100%",
+      top: "65px"
+    }
   },
-});
+}));
 
 export const HeaderMenu: React.FC = () => {
   const classes = useStyles();
